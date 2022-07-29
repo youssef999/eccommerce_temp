@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">154082487981-a1107no1hts4vuq4essgk8b91iu0ea7g.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">154082487981</string>
+    <string name="google_api_key" translatable="false">AIzaSyCCHlm9ox9dFB9qEH9rfyyYVfU56ictgxA</string>
+    <string name="google_app_id" translatable="false">1:154082487981:android:fd49640cb6b457d01f2024</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCCHlm9ox9dFB9qEH9rfyyYVfU56ictgxA</string>
+    <string name="google_storage_bucket" translatable="false">ecoapp-4e9dd.appspot.com</string>
+    <string name="project_id" translatable="false">ecoapp-4e9dd</string>
+</resources>

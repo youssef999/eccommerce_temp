@@ -1,0 +1,50 @@
+[
+    {
+        "merged": "D:\\work_2022\\eco_template\\build\\google_maps_flutter\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_text_light_normal_background.9.png",
+        "source": "C:\\Users\\Youssef\\.gradle\\caches\\transforms-2\\files-2.1\\3bba847dbb31e774f8337618b2a029ad\\jetified-play-services-base-17.0.0\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_light_normal_background.9.png"
+    },
+    {
+        "merged": "D:\\work_2022\\eco_template\\build\\google_maps_flutter\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_icon_light_normal_background.9.png",
+        "source": "C:\\Users\\Youssef\\.gradle\\caches\\transforms-2\\files-2.1\\3bba847dbb31e774f8337618b2a029ad\\jetified-play-services-base-17.0.0\\res\\drawable-xhdpi-v4\\common_google_signin_btn_icon_light_normal_background.9.png"
+    },
+    {
+        "merged": "D:\\work_2022\\eco_template\\build\\google_maps_flutter\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\googleg_standard_color_18.png",
+        "source": "C:\\Users\\Youssef\\.gradle\\caches\\transforms-2\\files-2.1\\3bba847dbb31e774f8337618b2a029ad\\jetified-play-services-base-17.0.0\\res\\drawable-xhdpi-v4\\googleg_standard_color_18.png"
+    },
+    {
+        "merged": "D:\\work_2022\\eco_template\\build\\google_maps_flutter\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_full_open_on_phone.png",
+        "source": "C:\\Users\\Youssef\\.gradle\\caches\\transforms-2\\files-2.1\\3bba847dbb31e774f8337618b2a029ad\\jetified-play-services-base-17.0.0\\res\\drawable-xhdpi-v4\\common_full_open_on_phone.png"
+    },
+    {
+        "merged": "D:\\work_2022\\eco_template\\build\\google_maps_flutter\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\notification_bg_low_normal.9.png",
+        "source": "C:\\Users\\Youssef\\.gradle\\caches\\transforms-2\\files-2.1\\13fbef9bddf82a70795b218b5aaf0dbe\\core-1.1.0\\res\\drawable-xhdpi-v4\\notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "D:\\work_2022\\eco_template\\build\\google_maps_flutter\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\notification_bg_normal_pressed.9.png",
+        "source": "C:\\Users\\Youssef\\.gradle\\caches\\transforms-2\\files-2.1\\13fbef9bddf82a70795b218b5aaf0dbe\\core-1.1.0\\res\\drawable-xhdpi-v4\\notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "D:\\work_2022\\eco_template\\build\\google_maps_flutter\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\notify_panel_notification_icon_bg.png",
+        "source": "C:\\Users\\Youssef\\.gradle\\caches\\transforms-2\\files-2.1\\13fbef9bddf82a70795b218b5aaf0dbe\\core-1.1.0\\res\\drawable-xhdpi-v4\\notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "D:\\work_2022\\eco_template\\build\\google_maps_flutter\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_text_dark_normal_background.9.png",
+        "source": "C:\\Users\\Youssef\\.gradle\\caches\\transforms-2\\files-2.1\\3bba847dbb31e774f8337618b2a029ad\\jetified-play-services-base-17.0.0\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_dark_normal_background.9.png"
+    },
+    {
+        "merged": "D:\\work_2022\\eco_template\\build\\google_maps_flutter\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\notification_bg_normal.9.png",
+        "source": "C:\\Users\\Youssef\\.gradle\\caches\\transforms-2\\files-2.1\\13fbef9bddf82a70795b218b5aaf0dbe\\core-1.1.0\\res\\drawable-xhdpi-v4\\notification_bg_normal.9.png"
+    },
+    {
+        "merged": "D:\\work_2022\\eco_template\\build\\google_maps_flutter\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_icon_dark_normal_background.9.png",
+        "source": "C:\\Users\\Youssef\\.gradle\\caches\\transforms-2\\files-2.1\\3bba847dbb31e774f8337618b2a029ad\\jetified-play-services-base-17.0.0\\res\\drawable-xhdpi-v4\\common_google_signin_btn_icon_dark_normal_background.9.png"
+    },
+    {
+        "merged": "D:\\work_2022\\eco_template\\build\\google_maps_flutter\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\googleg_disabled_color_18.png",
+        "source": "C:\\Users\\Youssef\\.gradle\\caches\\transforms-2\\files-2.1\\3bba847dbb31e774f8337618b2a029ad\\jetified-play-services-base-17.0.0\\res\\drawable-xhdpi-v4\\googleg_disabled_color_18.png"
+    },
+    {
+        "merged": "D:\\work_2022\\eco_template\\build\\google_maps_flutter\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\notification_bg_low_pressed.9.png",
+        "source": "C:\\Users\\Youssef\\.gradle\\caches\\transforms-2\\files-2.1\\13fbef9bddf82a70795b218b5aaf0dbe\\core-1.1.0\\res\\drawable-xhdpi-v4\\notification_bg_low_pressed.9.png"
+    }
+]
