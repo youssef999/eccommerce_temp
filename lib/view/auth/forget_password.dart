@@ -1,4 +1,3 @@
-
 import 'package:ecommerce/view/auth/login_view.dart';
 import 'package:ecommerce/view/widgets/custom_button.dart';
 import 'package:ecommerce/view/widgets/custom_text.dart';
@@ -13,9 +12,13 @@ class ForgetPasswordView extends GetWidget<AuthViewModel> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
-          elevation: 0.0,
+          centerTitle: true,
           backgroundColor: Colors.white,
+          elevation: 0,
+          title: Text("Forgot Password"),
+          titleTextStyle: TextStyle(color: Color(0xFF8B8B8B), fontSize: 18),
           leading: GestureDetector(
             child: Icon(Icons.arrow_back, color: Colors.black),
             onTap: () {
@@ -28,20 +31,15 @@ class ForgetPasswordView extends GetWidget<AuthViewModel> {
           child: Form(
               key: _formKey,
               child: Column(children: <Widget>[
-
                 Custom_Text(
-                  text: "استعادة كلمة المرور ",
+                  text: "Forget Password",
                   fontSize: 30,
                 ),
-
-                SizedBox(height: 7),
-                SizedBox(height: 20),
-
-
+                SizedBox(height: 50),
                 CustomTextFormField(
-                    text: "الايميل ",
+                    text: "Email",
                     obs: false,
-                    hint: "dev@yahoo.com",
+                    hint: "Enter your Email",
                     onSave: (value) {
                       controller.email = value;
                     },
@@ -50,9 +48,7 @@ class ForgetPasswordView extends GetWidget<AuthViewModel> {
                         print("error");
                       }
                     }),
-                SizedBox(height: 20),
-
-                SizedBox(height: 20),
+                SizedBox(height: 50),
                 CustomButton(
                   onPressed: () {
                     _formKey.currentState.save();
@@ -60,7 +56,7 @@ class ForgetPasswordView extends GetWidget<AuthViewModel> {
                       controller.ResetPassword();
                     }
                   },
-                  text: "استعادة كلمة المرور",
+                  text: "Reset Password",
                 ),
                 SizedBox(height: 20),
               ])),

@@ -1,21 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecommerce/helper/local_storage_data.dart';
-import 'package:ecommerce/map/map1.dart';
-import 'package:ecommerce/map/map_screen.dart';
-import 'package:ecommerce/map/map_view.dart';
-import 'package:ecommerce/view/cart/empty_cart.dart';
-import 'package:ecommerce/view/cart/saveOrder.dart';
-import 'package:ecommerce/view/cart/cart_view.dart';
-import 'package:ecommerce/view/category/category.dart';
+import 'package:ecommerce/view/cart/cart_view2.dart';
 import 'package:ecommerce/view/home/home_view.dart';
-import 'package:ecommerce/view/owner/owner_code.dart';
 import 'package:ecommerce/view/profile/profile_view.dart';
 import 'package:ecommerce/viewmodel/auth_view_model.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-
 import 'home_view_model.dart';
 
 
@@ -34,25 +26,18 @@ class ControlViewModel extends GetxController {
     print('onitttt');
     // Here you can fetch you product from server
     super.onInit();
-    FirebaseMessaging fcm=FirebaseMessaging();
+    FirebaseMessaging fcm = FirebaseMessaging();
     fcm.getToken().then((value) {
       final box = GetStorage();
       box.write('token', value.toString());
-      print("token"+value.toString());
+      print("token" + value.toString());
 
-
-        Firestore.instance
-            .collection('notifications')
-            .document()
-            .setData({
-          'token': value,
-        });
-
+      Firestore.instance.collection('notifications').document().setData({
+        'token': value,
+      });
     });
     update();
   }
-
-
 
   @override
   void onReady() {
@@ -60,7 +45,6 @@ class ControlViewModel extends GetxController {
     _currentScreen = HomeView();
     super.onReady();
   }
-
 
   @override
   void onClose() {
@@ -78,31 +62,25 @@ class ControlViewModel extends GetxController {
     switch (selectedValue) {
       case 0:
         {
-
-
           _currentScreen = HomeView();
 
           break;
         }
       case 1:
         {
-        //  _currentScreen = CartView2();
-  // Get.to(MapView());
+          //  _currentScreen = CartView2();
+          // Get.to(MapView());
           // _currentScreen = CartView2();
-          Get.to(CategoryView()); // SaveOrder('x');
+         // Get.to(CategoryView()); // SaveOrder('x');
           break;
         }
 
       case 2:
         {
-
-
-            Get.to(CartView2());
-
-
+          Get.to(CartView3());
 
 // out: GetX is the best
-       //   Get.to(CartView2()); // SaveOrder('x');
+          //   Get.to(CartView2()); // SaveOrder('x');
           break;
           // _currentScreen = ProfileView();
 

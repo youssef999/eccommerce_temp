@@ -1,3 +1,7 @@
+animated_splash_screen
+2.12
+file:///C:/src/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/animated_splash_screen-1.3.0/
+file:///C:/src/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/animated_splash_screen-1.3.0/lib/
 ansicolor
 2.0
 file:///C:/src/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/ansicolor-1.1.1/
@@ -22,6 +26,10 @@ carousel_pro
 2.0
 file:///C:/src/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/carousel_pro-1.0.0/
 file:///C:/src/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/carousel_pro-1.0.0/lib/
+carousel_slider
+2.12
+file:///C:/src/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/carousel_slider-4.1.1/
+file:///C:/src/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/carousel_slider-4.1.1/lib/
 change_app_package_name
 2.12
 file:///C:/src/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/change_app_package_name-1.0.0/
@@ -174,6 +182,10 @@ google_maps_flutter_platform_interface
 2.12
 file:///C:/src/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/google_maps_flutter_platform_interface-2.0.0/
 file:///C:/src/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/google_maps_flutter_platform_interface-2.0.0/lib/
+google_nav_bar
+2.12
+file:///C:/src/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/google_nav_bar-5.0.6/
+file:///C:/src/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/google_nav_bar-5.0.6/lib/
 google_sign_in
 2.1
 file:///C:/src/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/google_sign_in-4.5.9/
@@ -258,6 +270,10 @@ onesignal_flutter
 2.0
 file:///C:/src/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/onesignal_flutter-2.6.4/
 file:///C:/src/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/onesignal_flutter-2.6.4/lib/
+page_transition
+2.12
+file:///C:/src/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/page_transition-2.0.9/
+file:///C:/src/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/page_transition-2.0.9/lib/
 path
 2.12
 file:///C:/src/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.8.0/
@@ -354,6 +370,10 @@ shared_preferences_windows
 2.12
 file:///C:/src/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_windows-2.1.0/
 file:///C:/src/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_windows-2.1.0/lib/
+smooth_page_indicator
+2.12
+file:///C:/src/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/smooth_page_indicator-1.0.0+2/
+file:///C:/src/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/smooth_page_indicator-1.0.0+2/lib/
 source_span
 2.12
 file:///C:/src/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/source_span-1.8.1/
@@ -476,6 +496,6 @@ file:///C:/src/2.5.3/flutter/packages/flutter_web_plugins/
 file:///C:/src/2.5.3/flutter/packages/flutter_web_plugins/lib/
 ecommerce
 2.7
-file:///D:/work_2022/eco_template/
-file:///D:/work_2022/eco_template/lib/
+file:///D:/topFlutterApps/Shopping-Appw-master/
+file:///D:/topFlutterApps/Shopping-Appw-master/lib/
 2

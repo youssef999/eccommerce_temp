@@ -1,4 +1,3 @@
-
 import 'package:ecommerce/view/auth/login_view.dart';
 import 'package:ecommerce/view/widgets/custom_button.dart';
 import 'package:ecommerce/view/widgets/custom_text.dart';
@@ -13,9 +12,13 @@ class RegisterView extends GetWidget<AuthViewModel> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
+          centerTitle: true,
           elevation: 0.0,
           backgroundColor: Colors.white,
+          title: Text("Sign up"),
+          titleTextStyle: TextStyle(color: Color(0xFF8B8B8B), fontSize: 18),
           leading: GestureDetector(
             child: Icon(Icons.arrow_back, color: Colors.black),
             onTap: () {
@@ -24,81 +27,80 @@ class RegisterView extends GetWidget<AuthViewModel> {
           ),
         ),
         body: Padding(
-          padding: const EdgeInsets.only(top: 50.0, right: 20.0, left: 20.0),
-          child: Form(
-              key: _formKey,
-              child: Column(children: <Widget>[
+          padding: const EdgeInsets.only(top: 30.0, right: 20.0, left: 20.0),
+          child: SingleChildScrollView(
+            child: Form(
+                key: _formKey,
+                child: Column(children: <Widget>[
+                  Custom_Text(
+                    text: "Register your account",
+                    fontSize: 30,
+                  ),
+                  SizedBox(height: 50),
+                  CustomTextFormField(
+                      text: "Name",
+                      obs: false,
+                      hint: "Enter your name",
+                      onSave: (value) {
+                        controller.name = value;
+                      },
+                      validator: (value) {
+                        if (value == null) {
+                          print("error");
+                        }
+                      }),
+                  SizedBox(height: 20),
+                  // CustomTextFormField(
+                  //     text: "E_mail",
+                  //     hint: "dev@yahoo.com",
+                  //     onSave: (value) {
+                  //       controller.email = value;
+                  //     },
+                  //     validator: (value) {
+                  //       if (value == null) {
+                  //         print("error");
+                  //       }
+                  //     }),
+                  CustomTextFormField(
+                      text: "Email",
+                      hint: "Enter your email",
+                      obs: false,
+                      onSave: (value) {
+                        controller.email = value;
+                      },
+                      validator: (value) {
+                        if (value == null) {
+                          print("error");
+                        }
+                      }),
+                  SizedBox(height: 20),
+                  CustomTextFormField(
+                      text: "Password",
+                      hint: "Enter your Password",
+                      obs: true,
+                      onSave: (value) {
+                        controller.password = value;
+                      },
+                      validator: (value) {
+                        if (value == null) {
+                          print("error");
+                        }
+                      }),
+                  SizedBox(height: 80),
 
-                // Custom_Text(
-                //   text: "تسجيل",
-                //   fontSize: 30,
-                // ),
-
-                SizedBox(height: 7),
-                SizedBox(height: 20),
-                CustomTextFormField(
-                    text: "الاسم",
-                    obs: false,
-                    hint: "omar",
-                    onSave: (value) {
-                      controller.name = value;
-                    },
-                    validator: (value) {
-                      if (value == null) {
-                        print("error");
+                  CustomButton(
+                    onPressed: () {
+                      _formKey.currentState.save();
+                      if (_formKey.currentState.validate()) {
+                        // controller.verifyPhoneNumber();
+                        controller.createAccountWithEmailAndPassword();
                       }
-                    }),
-                     SizedBox(height: 20),
-                // CustomTextFormField(
-                //     text: "E_mail",
-                //     hint: "dev@yahoo.com",
-                //     onSave: (value) {
-                //       controller.email = value;
-                //     },
-                //     validator: (value) {
-                //       if (value == null) {
-                //         print("error");
-                //       }
-                //     }),
-                CustomTextFormField(
-                    text: "الايميل",
-                    hint: "dev@gmail.com",
-                    obs: false,
-                    onSave: (value) {
-                      controller.email = value;
                     },
-                    validator: (value) {
-                      if (value == null) {
-                        print("error");
-                      }
-                    }),
-                SizedBox(height: 20),
-                CustomTextFormField(
-                    text: "Password",
-                    hint: "************",
-                    obs: true,
-                    onSave: (value) {
-                      controller.password = value;
-                    },
-                    validator: (value) {
-                      if (value == null) {
-                        print("error");
-                      }
-                    }),
-                SizedBox(height: 20),
-
-                CustomButton(
-                  onPressed: () {
-                    _formKey.currentState.save();
-                    if (_formKey.currentState.validate()) {
-                    // controller.verifyPhoneNumber();
-                    controller.createAccountWithEmailAndPassword();
-                    }
-                  },
-                  text: "تسجيل",
-                ),
-                SizedBox(height: 20),
-              ])),
+                    text: "Sign up",
+                  ),
+                  SizedBox(height: 20),
+                ])),
+          ),
         ));
   }
 }

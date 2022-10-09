@@ -1,36 +1,23 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecommerce/model/cart_product_model.dart';
 import 'package:ecommerce/model/product_moidel.dart';
 import 'package:ecommerce/services/database/cart_database_helper2.dart';
-import 'package:ecommerce/view/cart/cart_view.dart';
-import 'package:ecommerce/view/home/controll_view.dart';
-import 'package:ecommerce/view/home/home_view.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 class CartViewModel extends GetxController {
+
+
   ValueNotifier<bool> get loading => _loading;
-
   ValueNotifier<bool> _loading = ValueNotifier(false);
-
   List<CartProductModel> _cartProductModel = [];
-
   List<CartProductModel> get cartProductModel => _cartProductModel;
-
   double get totalPrice => _totalPrice;
-
-
-
   double _totalPrice = 0.0;
   num total = 0.0;
-
   int quant2 = 1;
-
   var dbHelper = CartDatabaseHelper.db;
-  ProductModel   model;
-
+  ProductModel model;
 
   @override
   void onInit() {
@@ -71,22 +58,13 @@ class CartViewModel extends GetxController {
   }
 
   addProduct2(CartProductModel cartProductModel, String productId) async {
-    // if (_cartProductModel.length == 0) {
-    //   var dbHelper = CartDatabaseHelper.db;
-    //   await dbHelper.insert(cartProductModel);
-    //   _cartProductModel.add(cartProductModel);
-    //    Get.snackbar('done', 'تم اضافة المنتج بنجاح',
-    //     snackPosition: SnackPosition.BOTTOM,
-    //     //backgroundColor: Colors.green,
-    //     colorText: Colors.black);
-    // }
 
 
     if (_cartProductModel.length == 10) {
       Get.snackbar('عفوا', "لا يمكن اضافة اكثر من 10 منتجات في كل طلب",
-       snackPosition: SnackPosition.BOTTOM,
-        //backgroundColor: Colors.white,
-        colorText: Colors.black);
+          snackPosition: SnackPosition.BOTTOM,
+          //backgroundColor: Colors.white,
+          colorText: Colors.black);
     }
 
     // if (cartProductModel.brand != cartProductModel.brand ) {
@@ -96,17 +74,20 @@ class CartViewModel extends GetxController {
     //       colorText: Colors.black);
     // }
 
-
     else {
-     // print("brannnnd="+cartProductModel.brand_email);
+      // print("brannnnd="+cartProductModel.brand_email);
       var dbHelper = CartDatabaseHelper.db;
       await dbHelper.insert(cartProductModel);
       print("done");
-     // Get.to(CartView2());
-       // Get.snackbar('done', 'تم اضافة المنتج بنجاح',
-       //  snackPosition: SnackPosition.BOTTOM,
-       //  //backgroundColor: Colors.green,
-       //  colorText: Colors.black);
+      Get.snackbar('Done', 'تم اضافة المنتج بنجاح',colorText:Colors.white,
+          backgroundColor:Colors.pink,
+
+      );
+      // Get.to(CartView2());
+      // Get.snackbar('done', 'تم اضافة المنتج بنجاح',
+      //  snackPosition: SnackPosition.BOTTOM,
+      //  //backgroundColor: Colors.green,
+      //  colorText: Colors.black);
     }
 
     _cartProductModel.add(cartProductModel);
@@ -114,61 +95,56 @@ class CartViewModel extends GetxController {
         (double.parse(cartProductModel.price) * cartProductModel.quantity);
     update();
     getAllProduct();
-   
   }
 
-
-  dialogAndAdd(CartProductModel cartProductModel, String productId){
-
+  dialogAndAdd (CartProductModel cartProductModel, String productId) {
     Get.defaultDialog(
-      title: "متاكد من الاضافة الي السلة  ",
-      middleText:"",
-      onConfirm:(){
-        addProduct2(cartProductModel,productId);
+      title: "Are you sure add to cart",
+      middleText: "",
+      onConfirm: () {
+        addProduct2(cartProductModel, productId);
         print("");
         Get.back();
         // Get.off(ControlView());
       },
 
-      onCancel:(){
+      onCancel: () {
         print("kk");
       },
-      textCancel:"لا",
-      textConfirm:"نعم",
-      cancelTextColor:Colors.deepOrange,
-      buttonColor:Colors.blue,
-      confirmTextColor:Colors.white,
+      textCancel: "No",
+      textConfirm: "Yes",
+      cancelTextColor: Colors.black,
+      buttonColor: Colors.pinkAccent,
+      confirmTextColor: Colors.white,
       barrierDismissible: true,
       //middleText: "Hello world!",
       backgroundColor: Colors.white,
-      titleStyle: TextStyle(color: Colors.blue),
+      titleStyle: TextStyle(color: Colors.black),
       middleTextStyle: TextStyle(color: Colors.white),
     );
   }
 
-
-  dialogAndDelete(CartProductModel cartProductModel, String productId){
-
+  dialogAndDelete(CartProductModel cartProductModel, String productId) {
     Get.defaultDialog(
       title: "متاكد من مسح طلبك السابق ",
-      middleText:"",
-      onConfirm:(){
+      middleText: "",
+      onConfirm: () {
         DeleteAll(cartProductModel);
-        addProduct2(cartProductModel,productId);
+        addProduct2(cartProductModel, productId);
         print("");
         Get.back();
-       // Get.off(ControlView());
+        // Get.off(ControlView());
       },
 
-      onCancel:(){
+      onCancel: () {
         print("kk");
       },
-      textCancel:"لا",
-      textConfirm:"نعم",
-      cancelTextColor:Colors.deepOrange,
-      buttonColor:Colors.red,
+      textCancel: "لا",
+      textConfirm: "نعم",
+      cancelTextColor: Colors.deepOrange,
+      buttonColor: Colors.red,
 
-      confirmTextColor:Colors.white,
+      confirmTextColor: Colors.white,
       barrierDismissible: true,
       //middleText: "Hello world!",
       backgroundColor: Colors.white,
@@ -193,14 +169,14 @@ class CartViewModel extends GetxController {
         colorText: Colors.black);
   }
 
-   DeleteAll(CartProductModel cartProductModel)async{
-     var dbHelper = CartDatabaseHelper.db;
-     await dbHelper.DeleteAll(cartProductModel);
-     final box = GetStorage();
-     box.remove('brand');
-     print("delete Done");
-     update();
-   }
+  DeleteAll(CartProductModel cartProductModel) async {
+    var dbHelper = CartDatabaseHelper.db;
+    await dbHelper.DeleteAll(cartProductModel);
+    final box = GetStorage();
+    box.remove('brand');
+    print("delete Done");
+    update();
+  }
   // addProduct(name, img, price, quant2, product_id) async {
   //   final user = FirebaseAuth.instance.currentUser;
   //   final userData =
@@ -258,7 +234,7 @@ class CartViewModel extends GetxController {
 
   decreaseQuantity(int index) async {
     if (_cartProductModel[index].quantity > 1) {
-      _cartProductModel[index].quantity=_cartProductModel[index].quantity - 1;
+      _cartProductModel[index].quantity = _cartProductModel[index].quantity - 1;
       _totalPrice -= (double.parse(_cartProductModel[index].price));
       dbHelper.updateProduct(_cartProductModel[index]);
       update();

@@ -1,259 +1,195 @@
-
-
- import 'package:ecommerce/view/brands/brand_cat_view.dart';
-import 'package:ecommerce/view/category/cateogry_product.dart';
-import 'package:ecommerce/view/products/products_view2.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:ecommerce/helper/size_helper.dart';
+import 'package:ecommerce/view/widgets/custom_text.dart';
+import 'package:ecommerce/viewmodel/home_view_model.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hexcolor/hexcolor.dart';
+import 'cateogry_product.dart';
 
-class CategoryView extends StatelessWidget {
+class CategoriesView extends StatefulWidget {
+
+
+  @override
+  _PostsScreenState createState() => _PostsScreenState();
+}
+
+
+class _PostsScreenState extends State<CategoriesView> {
+  String allposts;
+  String v;
+  Future resultsLoaded;
+
+  GlobalKey<ScaffoldState> scaffoldState = GlobalKey();
+
 
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
         backgroundColor: Colors.white,
-        iconTheme: IconThemeData(color: Colors.black),
-        title: Container(
-            height: 30,
-            child: Center(
-                child: Row(
-                  children: [
-                    SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.62
-                    ),
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.red,
+          toolbarHeight: 1,
 
-                    SizedBox(
-                        width: 5
-                    ),
-                  ],
-                ))),
-      ),
-      body:Container(
-        color:Colors.white38,
-        child:
-        Padding(
-          padding: const EdgeInsets.only(top:38.0),
-          child: GridView.count(
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            crossAxisCount: 2,
-            children: <Widget>[
+        ),
 
-              InkWell(
-                child: Card(
-                  child: Container(
-                    padding: const EdgeInsets.all(8),
-                    child: Center(child: Column(
-                      children: [
-                        InkWell(
-                          child: Container(
-                              height:100,
-                              width:400,
-                              child: Image.asset("assets/w1.png",
-                                fit:BoxFit.fitHeight,)
+        body: Container(
+          color: Colors.white38,
+          child: Column(children: [
+            SizedBox(
+              height: Dimentions.height7,
+            ),
+
+            SizedBox(
+              height: Dimentions.height7,
+            ),
+
+            Flexible(
+              child: StreamBuilder(
+                  stream: FirebaseFirestore.instance
+                      .collection('categories')
+                      .snapshots(),
+                  builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                    if (!snapshot.hasData)
+                      return Center(child: Text('Loading'));
+                    switch (snapshot.connectionState) {
+                      case ConnectionState.waiting:
+                        return new Text('Loading...');
+                      default:
+
+                        if(snapshot.data.docs==0 || !snapshot.hasData ){
+
+                          Center(
+                            child: Custom_Text(
+                              text:"no products in this category try another category",
+                              fontSize: 23,
+                              alignment: Alignment.center,
+                            ),
+                          );
+
+                        }
+                        else{
+                          return GridView.builder(
+                              gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2,
+                                crossAxisSpacing: 2,
+                                mainAxisSpacing: 3,
                               ),
-                          onTap:(){
-                            Get.to(ProductsView(cat:'men',));
-                          },
-                        ),
-                        const Text("ملابس رجالي",style:TextStyle(color:Colors.blue,fontSize:22),),
-                      ],
-                    )),
-                    color: Colors.white
-                  ),
-                ),
-                onTap:(){
+                              itemCount: snapshot.data.documents.length,
+                              itemBuilder: (BuildContext context, int index) {
+                                DocumentSnapshot posts =
+                                snapshot.data.documents[index];
 
-                  Get.to(ProductsView (cat:'men',));
+                                return GetBuilder<HomeViewModel>(
+                                    init: Get.find(),
+                                    builder: (controller) => Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Container(
+                                          height:
+                                          Dimentions.pageViewContainer220,
+                                          child: InkWell(
+                                            child: Card(
+                                              color: Colors.white,
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                    color: Colors.white,
+                                                    borderRadius: BorderRadius.only(
+                                                        topLeft:
+                                                        Radius.circular(
+                                                            Dimentions
+                                                                .Radius10),
+                                                        topRight:
+                                                        Radius.circular(
+                                                            Dimentions
+                                                                .Radius10),
+                                                        bottomLeft:
+                                                        Radius.circular(
+                                                            Dimentions
+                                                                .Radius10),
+                                                        bottomRight:
+                                                        Radius.circular(
+                                                            Dimentions
+                                                                .Radius10)),
+                                                    boxShadow: [
+                                                      BoxShadow(
+                                                        color: Colors.grey
+                                                            .withOpacity(0.5),
+                                                        spreadRadius: 5,
+                                                        blurRadius: 7,
+                                                        offset: Offset(0,
+                                                            3), // changes position of shadow
+                                                      ),
+                                                    ]),
+                                                child: Column(
+                                                  children: [
+                                                    Container(
+                                                      width:
+                                                      Dimentions.width420,
+                                                      height: Dimentions
+                                                          .ViewContainer140,
+                                                      child: Image.network(
+                                                          posts.data()[
+                                                          'image'],
+                                                          fit: BoxFit.fill),
+                                                    ),
+                                                    SizedBox(
+                                                        height: Dimentions
+                                                            .height10),
+                                                    Column(
+                                                      children: [
+                                                        Directionality(
+                                                          textDirection:
+                                                          TextDirection
+                                                              .rtl,
+                                                          child: Container(
+                                                            //    width:100,
+                                                            child: Text(
+                                                              (posts.data()[
+                                                              'name']),
+                                                              style: TextStyle(
+                                                                  color: Colors
+                                                                      .black,
+                                                                  fontSize:
+                                                                  18,
+                                                                  fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                                  fontFamily:
+                                                                  "Reboto"),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        SizedBox(
+                                                          height: Dimentions
+                                                              .height7,
+                                                        ),
 
-                },
-              ),
-              InkWell(
-               child: Card(
-                child: Container(
-                  padding: const EdgeInsets.all(8),
-                  child:Center(child: Column(
-                    children: [
-                      InkWell(
-                        child: Container(
-                            height:100,
-                            width:400,
-                            child: Image.asset("assets/w2.png",fit:BoxFit.fill)),
-                        onTap:() {
-                          Get.to(ProductsView (cat:'women',));
-                        },
-                      ),
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                            onTap: () {
+                                              Get.to ( CategoryProducts(
+                                                cat:  controller.categoryModel[index].name,
+                                              ));
 
+                                            },
+                                          )),
+                                    ));
+                              });
+                        }
 
-                      const Text("ملابس حريمي",style:TextStyle(color:Colors.blue,fontSize:22),),
-
-                    ],
-                  )),
-                  color: Colors.white,
-                )),
-                onTap:(){
-                  Get.to(ProductsView (cat:'women',));
-                },
-              ),
-
-              InkWell(
-                child: Card(
-                  child: Container(
-                    padding: const EdgeInsets.all(8),
-                    child: Center(child: Column(
-                      children: [
-                        InkWell(
-                          child: Container(
-                              height:100,
-                              width:400,
-                              child: Image.asset("assets/w44.png",fit:BoxFit.fill,)),
-                          onTap:(){
-                            Get.to(ProductsView (cat:'kids',));
-                          },
-                        ),
-                        const Text('ملابس اطفال',style:TextStyle(color:Colors.blue,fontSize:22),),
-                      ],
-                    )),
-                    color: Colors.white,
-
-                  ),
-                ),
-                onTap:(){Get.to(ProductsView (cat:'kids',));},
-              ),
-              InkWell(
-                child:Card(
-                child: Container(
-                  padding: const EdgeInsets.all(8),
-                  child: Center(child: Column(
-                    children: [
-                      InkWell(
-                        child: Container(
-                            height:100,
-                            width:400,
-                            child: Image.asset("assets/w66.png",fit:BoxFit.fill,)),
-                        onTap:(){
-                          Get.to(ProductsView (cat:'Acx',));
-                        },
-                      ),
-                      const Text("اكسسوارات",style:TextStyle(color:Colors.blue,fontSize:22),),
-                    ],
-                  )),
-                  color: Colors.white,
-                ) ),
-                onTap:(){Get.to(ProductsView (cat:'Acx',));},
-              ),
-
-          //     InkWell(
-          //       child: Card(
-          //         child: Container(
-          //           padding: const EdgeInsets.all(8),
-          //           child: Center(child: Column(
-          //             children: [
-          //               InkWell(
-          //                 child: Container(
-          //                     height:100,
-          //                     width:400,
-          //                     child: Image.asset("assets/c5.jpeg",fit:BoxFit.fill,)),
-          //                 onTap:(){
-          //                   Get.to(BrandsCatView(cat:'',));
-          //                 },
-          //               ),
-          //               const Text("المذاق العُماني",style:TextStyle(color:Colors.white,fontSize:22),),
-          //             ],
-          //           )),
-          //           color: HexColor("#ff68682A"),
-          //         ),
-          //       ),
-          //       onTap:(){Get.to(BrandsCatView(cat:'المذاق العُماني',));},
-          //     ),
-          //
-          //
-          //     InkWell(
-          // child:      Card(
-          //       child: Container(
-          //         padding: const EdgeInsets.all(8),
-          //         child: Center(child: Column(
-          //           children: [
-          //             InkWell(
-          //               child: Container(
-          //                   height:100,
-          //                   width:400,
-          //                   child: Image.asset("assets/c4.jpeg",fit:BoxFit.fill,)),
-          //               onTap:(){
-          //                 Get.to(BrandsCatView(cat:'تمور',));
-          //               },
-          //             ),
-          //             const Text("تمور",style:TextStyle(color:Colors.white,fontSize:22),),
-          //           ],
-          //         )),
-          //         color: HexColor("#ff68682A"),
-          //
-          //       )),
-          //       onTap:(){Get.to(BrandsCatView(cat:'تمور',));},
-          //     ),
-
-
-
-
-
-
-              // InkWell(
-              //   child: Container(
-              //     padding: const EdgeInsets.all(8),
-              //     child: Center(child: Column(
-              //       children: [
-              //         InkWell(
-              //           child: Container(
-              //               height:100,
-              //               width:400,
-              //               child: Image.asset("assets/w3.png",fit:BoxFit.fill,)),
-              //           onTap:(){
-              //             Get.to(BrandsCatView(cat:'سعفيات',));
-              //           },
-              //         ),
-              //         const Text("سعفيات",style:TextStyle(color:Colors.white,fontSize:22),),
-              //       ],
-              //     )),
-              //     color: HexColor("#ff68682A"),
-              //
-              //   ),
-              //   onTap:(){Get.to(BrandsCatView(cat:'سعفيات',));},
-              // ),
-
-
-              // InkWell(
-              //   child: Container(
-              //     padding: const EdgeInsets.all(8),
-              //     child: Center(child: Column(
-              //       children: [
-              //         InkWell(
-              //           child: Container(
-              //               height:100,
-              //               width:400,
-              //               child: Image.asset("assets/q7.png",fit:BoxFit.fill,)),
-              //           onTap:(){
-              //             Get.to(BrandsCatView(cat:'خلطات',));
-              //           },
-              //         ),
-              //         const Text("خلطات",style:TextStyle(color:Colors.white,fontSize:22),),
-              //       ],
-              //     )),
-              //     color: HexColor("#ff68682A"),
-              //
-              //   ),
-              //   onTap:(){Get.to(BrandsCatView(cat:'خلطات',));},
-              // ),
-
-
-
-            ],
-          ),
-        )
-      ),
-    );
+                    }
+                  }),
+            ),
+            //),
+            //  ]),
+          ]),
+        ));
   }
 }

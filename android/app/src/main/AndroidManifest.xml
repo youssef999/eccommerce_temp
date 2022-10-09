@@ -10,7 +10,7 @@
 
 
     <application
-        android:label="المتجر الالكتروني "
+        android:label=" Shopping app "
         android:icon="@mipmap/launcher_icon">
 
         <meta-data android:name="com.google.android.geo.API_KEY"

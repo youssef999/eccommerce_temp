@@ -16,8 +16,7 @@ class AddressViewModel extends GetxController{
   TextEditingController codeController= TextEditingController();
   String dropdownValue = '+20';
   bool check=true;
-  // TextEditingController floor= TextEditingController();
-  // TextEditingController mobile = TextEditingController();
+
 
 
   @override
