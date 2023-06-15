@@ -15,8 +15,8 @@ class ProfileViewModel extends GetxController {
     getCurrentUser();
   }
 
-  UserModel get userModel => _userModel;
-  UserModel  _userModel;
+  UserModel get userModel => _userModel!;
+  UserModel  ? _userModel;
 
   final LocalStorageData localStorageData = Get.find();
 

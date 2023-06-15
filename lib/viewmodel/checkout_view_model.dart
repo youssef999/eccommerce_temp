@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecommerce/model/cart_product_model.dart';
 import 'package:ecommerce/services/database/cart_database_helper2.dart';
@@ -9,7 +8,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:intl/intl.dart';
 
-class CheckOutViewModel extends GetxController {
+ class CheckOutViewModel extends GetxController {
   List<CartProductModel> _cartProductModel = [];
 
   List<CartProductModel> get cartProductModel => _cartProductModel;
@@ -36,11 +35,11 @@ class CheckOutViewModel extends GetxController {
 
       )
   async {
-    String  pr, pr1, pr2, pr3, pr4, pr5, pr6, pr7, pr8, pr9, pr10;
-    int  q, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10;
+    String  ? pr, pr1, pr2, pr3, pr4, pr5, pr6, pr7, pr8, pr9, pr10;
+    int  ? q, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10;
     String order_id;
-  String  color,color2,color3,color4,color5,color6,color7,color8,color9,color10;
-  String  size,size2,size3,size4,size5,size6,size7,size8,size9,size10;
+  String ? color,color2,color3,color4,color5,color6,color7,color8,color9,color10;
+  String  ? size,size2,size3,size4,size5,size6,size7,size8,size9,size10;
     
     DateTime now = DateTime.now();
 
@@ -500,7 +499,7 @@ class CheckOutViewModel extends GetxController {
   //  print("ppp=" + pr3);
 
     final FirebaseAuth auth = FirebaseAuth.instance;
-    final User user = auth.currentUser;
+    final User user = auth.currentUser!;
     final uid = user.email;
 
 
@@ -531,7 +530,7 @@ class CheckOutViewModel extends GetxController {
         'floor': floor.toString(),
         'mobile': mobile.toString(),
         'username': uid,
-        'ord 1': pr + " x " + q.toString(),
+        'ord 1': pr! + " x " + q.toString(),
         'order_status': 'pending',
         'time': time,
          'time2':time2,
@@ -579,8 +578,8 @@ class CheckOutViewModel extends GetxController {
           'long':long,
         'notes':notes,
         'username': uid,
-        'ord 1': pr + " x " + q.toString(),
-        'ord 2': pr1 + " x " + q1.toString(),
+        'ord 1': pr! + " x " + q.toString(),
+        'ord 2': pr1! + " x " + q1.toString(),
 
 
         'color1': color.toString(),
@@ -634,9 +633,9 @@ class CheckOutViewModel extends GetxController {
           'long':long,
         'notes':notes,
         'username': uid,
-        'ord 1': pr + " x " + q.toString(),
-        'ord 2': pr1 + " x " + q1.toString(),
-        'ord 3': pr2 + " x " + q2.toString(),
+        'ord 1': pr !+ " x " + q.toString(),
+        'ord 2': pr1! + " x " + q1.toString(),
+        'ord 3': pr2! + " x " + q2.toString(),
 
 
         'color1': color.toString(),
@@ -688,10 +687,10 @@ class CheckOutViewModel extends GetxController {
         'username': uid,
    'lat':lat,
           'long':long,
-        'ord 1': pr +  " x " + q.toString(),
-        'ord 2': pr1 + " x " + q1.toString(),
-        'ord 3': pr2 + " x " + q2.toString(),
-        'ord 4': pr3 + " x " + q3.toString(),
+        'ord 1': pr! +  " x " + q.toString(),
+        'ord 2': pr1! + " x " + q1.toString(),
+        'ord 3': pr2! + " x " + q2.toString(),
+        'ord 4': pr3! + " x " + q3.toString(),
 
 
 
@@ -748,11 +747,11 @@ class CheckOutViewModel extends GetxController {
         'username': uid,
            'lat':lat,
           'long':long,
-        'ord 1': pr +  " x " + q.toString(),
-        'ord 2': pr1 + " x " + q1.toString(),
-        'ord 3': pr2 + " x " + q2.toString(),
-        'ord 4': pr3 + " x " + q3.toString(),
-        'ord 5': pr4 + " x " + q4.toString(),
+        'ord 1': pr! +  " x " + q.toString(),
+        'ord 2': pr1! + " x " + q1.toString(),
+        'ord 3': pr2! + " x " + q2.toString(),
+        'ord 4': pr3! + " x " + q3.toString(),
+        'ord 5': pr4! + " x " + q4.toString(),
 
 
         'color1': color.toString(),
@@ -815,12 +814,12 @@ class CheckOutViewModel extends GetxController {
           'long':long,
         'username': uid,
         'notes':notes,
-        'ord 1': pr + " x " + q.toString(),
-        'ord 2': pr1 + " x " + q1.toString(),
-        'ord 3': pr2 + " x " + q2.toString(),
-        'ord 4': pr3 + " x " + q3.toString(),
-        'ord 5': pr4 + " x " + q4.toString(),
-        'ord 6': pr5 + " x " + q5.toString(),
+        'ord 1': pr! + " x " + q.toString(),
+        'ord 2': pr1! + " x " + q1.toString(),
+        'ord 3': pr2! + " x " + q2.toString(),
+        'ord 4': pr3! + " x " + q3.toString(),
+        'ord 5': pr4! + " x " + q4.toString(),
+        'ord 6': pr5! + " x " + q5.toString(),
 
 
 
@@ -888,13 +887,13 @@ class CheckOutViewModel extends GetxController {
           'long':long,
         'brand_email':brand_email,
         'brand':brand,
-        'ord 1': pr + " x " + q.toString(),
-        'ord 2': pr1 + " x " + q1.toString(),
-        'ord 3': pr2 + " x " + q2.toString(),
-        'ord 4': pr3 + " x " + q3.toString(),
-        'ord 5': pr4 + " x " + q4.toString(),
-        'ord 6': pr5 + " x  " + q5.toString(),
-        'ord 7': pr6 + " x " + q6.toString(),
+        'ord 1': pr! + " x " + q.toString(),
+        'ord 2': pr1! + " x " + q1.toString(),
+        'ord 3': pr2! + " x " + q2.toString(),
+        'ord 4': pr3! + " x " + q3.toString(),
+        'ord 5': pr4! + " x " + q4.toString(),
+        'ord 6': pr5! + " x  " + q5.toString(),
+        'ord 7': pr6! + " x " + q6.toString(),
 
 
         'color1': color.toString(),
@@ -963,14 +962,14 @@ class CheckOutViewModel extends GetxController {
         'notes':notes,
            'lat':lat,
           'long':long,
-        'ord 1': pr + " x " + q.toString(),
-        'ord 2': pr1 + " x " + q1.toString(),
-        'ord 3': pr2 + " x " + q2.toString(),
-        'ord 4': pr3 + " x " + q3.toString(),
-        'ord 5': pr4+ " x " + q4.toString(),
-        'ord 6': pr5 + " x  " + q5.toString(),
-        'ord 7': pr6 + " x " + q6.toString(),
-        'ord 8': pr7 + " x " + q7.toString(),
+        'ord 1': pr! + " x " + q.toString(),
+        'ord 2': pr1! + " x " + q1.toString(),
+        'ord 3': pr2! + " x " + q2.toString(),
+        'ord 4': pr3! + " x " + q3.toString(),
+        'ord 5': pr4!+ " x " + q4.toString(),
+        'ord 6': pr5! + " x  " + q5.toString(),
+        'ord 7': pr6! + " x " + q6.toString(),
+        'ord 8': pr7! + " x " + q7.toString(),
 
 
 
@@ -1044,15 +1043,15 @@ class CheckOutViewModel extends GetxController {
         'brand':brand,
            'lat':lat,
           'long':long,
-        'ord 1': pr + " x " + q.toString(),
-        'ord 2': pr1 + " x " + q1.toString(),
-        'ord 3': pr2 + " x " + q2.toString(),
-        'ord 4': pr3 + " x " + q3.toString(),
-        'ord 5': pr4 + " x " + q4.toString(),
-        'ord 6': pr5 + " x  " + q5.toString(),
-        'ord 7': pr6 + " x " + q6.toString(),
-        'ord 8': pr7 + " x " + q7.toString(),
-        'ord 9': pr8 + " x " + q8.toString(),
+        'ord 1': pr! + " x " + q.toString(),
+        'ord 2': pr1! + " x " + q1.toString(),
+        'ord 3': pr2! + " x " + q2.toString(),
+        'ord 4': pr3! + " x " + q3.toString(),
+        'ord 5': pr4! + " x " + q4.toString(),
+        'ord 6': pr5! + " x  " + q5.toString(),
+        'ord 7': pr6! + " x " + q6.toString(),
+        'ord 8': pr7! + " x " + q7.toString(),
+        'ord 9': pr8! + " x " + q8.toString(),
 
 
 
@@ -1138,17 +1137,17 @@ class CheckOutViewModel extends GetxController {
         'brand':brand,
            'lat':lat,
           'long':long,
-        'ord 1': pr + " x " + q.toString(),
-        'ord 2': pr1 + " x " + q1.toString(),
-        'ord 3': pr2 + " x " + q2.toString(),
-        'ord 4': pr3 + " x " + q3.toString(),
-        'ord 5': pr4 + " x " + q4.toString(),
-        'ord 6': pr5 + " x  " + q5.toString(),
-        'ord 7': pr6 + " x " + q6.toString(),
-        'ord 8': pr7 + " x " + q7.toString(),
-        'ord 9': pr8 + " x " + q8.toString(),
-        'ord 10': pr9 + " x " + q9.toString(),
-        'ord 11': pr10 + " x " + q10.toString(),
+        'ord 1': pr! + " x " + q.toString(),
+        'ord 2': pr1! + " x " + q1.toString(),
+        'ord 3': pr2! + " x " + q2.toString(),
+        'ord 4': pr3! + " x " + q3.toString(),
+        'ord 5': pr4! + " x " + q4.toString(),
+        'ord 6': pr5! + " x  " + q5.toString(),
+        'ord 7': pr6! + " x " + q6.toString(),
+        'ord 8': pr7! + " x " + q7.toString(),
+        'ord 9': pr8! + " x " + q8.toString(),
+        'ord 10': pr9 !+ " x " + q9.toString(),
+        'ord 11': pr10! + " x " + q10.toString(),
 
         'color1': color.toString(),
         'size1': size.toString(),

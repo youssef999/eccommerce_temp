@@ -40,7 +40,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  VideoPlayerController _controller;
+  VideoPlayerController ? _controller;
   @override
   void initState() {
     super.initState();

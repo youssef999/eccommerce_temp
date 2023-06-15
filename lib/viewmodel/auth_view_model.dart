@@ -14,8 +14,8 @@ class AuthViewModel extends GetxController {
 
   FirebaseAuth _auth = FirebaseAuth.instance;
 
-  String email, password, name, phone, codeV, code;
-  String country, city, details, mobile, brand_name, cat;
+  String ? email, password, name, phone, codeV, code;
+  String  ? country, city, details, mobile, brand_name, cat;
   var verificationId;
   Rx<User> _user = Rx<User>();
   get user => _user.value?.email;
@@ -49,10 +49,10 @@ class AuthViewModel extends GetxController {
 
     try {
       await _auth
-          .signInWithEmailAndPassword(email: email, password: password)
+          .signInWithEmailAndPassword(email: email!, password: password!)
           .then((value) async {
-        await FireStoreUser().getCurrentUser(value.user.uid).then((value) {
-          setUser(UserModel.fromJson(value.data()));
+        await FireStoreUser().getCurrentUser(value.user!.uid).then((value) {
+         // setUser(UserModel.fromJson(value.data()));
           print("Userr = " + _user.toString());
         });
       });
@@ -78,8 +78,8 @@ class AuthViewModel extends GetxController {
           .signInWithEmailAndPassword(
               email: 'test@gmail.com', password: '123456')
           .then((value) async {
-        await FireStoreUser().getCurrentUser(value.user.uid).then((value) {
-          setUser(UserModel.fromJson(value.data()));
+        await FireStoreUser().getCurrentUser(value.user!.uid).then((value) {
+         // setUser(UserModel.fromJson(value.data()));
           print("Userr = " + _user.toString());
         });
       });
@@ -109,8 +109,8 @@ class AuthViewModel extends GetxController {
     try {
       await _auth
           .createUserWithEmailAndPassword(
-        email: email,
-        password: password,
+        email: email!,
+        password: password!,
       )
           .then((user) async {
         //saveUser(user);
@@ -139,7 +139,7 @@ class AuthViewModel extends GetxController {
   void createAccountWithPhoneAndPassword() async {
     try {
       await _auth
-          .createUserWithEmailAndPassword(email: email, password: password)
+          .createUserWithEmailAndPassword(email: email!, password: password!)
           .then((user) async {
         //saveUser(user);
       });
@@ -193,7 +193,7 @@ class AuthViewModel extends GetxController {
 
   void ResetPassword() async {
     try {
-      await _auth.sendPasswordResetEmail(email: email).then((value) {
+      await _auth.sendPasswordResetEmail(email: email!).then((value) {
         Get.to(MainPage());
         Get.snackbar('تم',
             'ارسلنا لك رابط علي الايميل تستطيع اعادة كلمة المرور من خلاله',

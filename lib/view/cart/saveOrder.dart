@@ -21,9 +21,9 @@ class SaveOrder extends StatefulWidget {
 }
 
 class _PostsScreenState extends State<SaveOrder> {
-  String allposts;
-  String  v;
-  Future  resultsLoaded;
+  String ? allposts;
+  String  ?v;
+  Future  ? resultsLoaded;
 
 
   GlobalKey<ScaffoldState> scaffoldState = GlobalKey();
@@ -32,7 +32,7 @@ class _PostsScreenState extends State<SaveOrder> {
   @override
   Widget build(BuildContext context) {
     final user = FirebaseAuth.instance.currentUser;
-    final userData =FirebaseFirestore.instance.collection('users').doc(user.uid).get();
+    final userData =FirebaseFirestore.instance.collection('users').doc(user!.uid).get();
 
     return Scaffold(
       backgroundColor: Colors.white,

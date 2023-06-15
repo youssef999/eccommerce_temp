@@ -51,8 +51,8 @@ class ForgetPasswordView extends GetWidget<AuthViewModel> {
                 SizedBox(height: 50),
                 CustomButton(
                   onPressed: () {
-                    _formKey.currentState.save();
-                    if (_formKey.currentState.validate()) {
+                    _formKey.currentState!.save();
+                    if (_formKey.currentState!.validate()) {
                       controller.ResetPassword();
                     }
                   },

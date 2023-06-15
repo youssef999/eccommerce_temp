@@ -1,10 +1,9 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:ecommerce/helper/local_storage_data.dart';
 import 'package:ecommerce/view/cart/cart_view2.dart';
 import 'package:ecommerce/view/home/home_view.dart';
 import 'package:ecommerce/view/profile/profile_view.dart';
 import 'package:ecommerce/viewmodel/auth_view_model.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -26,16 +25,7 @@ class ControlViewModel extends GetxController {
     print('onitttt');
     // Here you can fetch you product from server
     super.onInit();
-    FirebaseMessaging fcm = FirebaseMessaging();
-    fcm.getToken().then((value) {
-      final box = GetStorage();
-      box.write('token', value.toString());
-      print("token" + value.toString());
 
-      Firestore.instance.collection('notifications').document().setData({
-        'token': value,
-      });
-    });
     update();
   }
 
@@ -77,7 +67,7 @@ class ControlViewModel extends GetxController {
 
       case 2:
         {
-          Get.to(CartView3());
+         // Get.to(CartView3());
 
 // out: GetX is the best
           //   Get.to(CartView2()); // SaveOrder('x');

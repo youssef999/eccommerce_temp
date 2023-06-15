@@ -27,7 +27,7 @@ class HomeViewModel extends GetxController {
     _loading.value = true;
     HomeServices().getCategory().then((value) {
       for (int i = 0; i < value.length; i++) {
-        _categoryModel.add(CategoryModel.fromJson(value[i].data()));
+       // _categoryModel.add(CategoryModel.fromJson(value[i].data()));
         _loading.value = false;
       }
       update();
@@ -43,7 +43,7 @@ class HomeViewModel extends GetxController {
     _loading.value = true;
     HomeServices().getBestSelling().then((value) {
       for (int i = 0; i < value.length; i++) {
-        _productModel.add(ProductModel.fromJson(value[i].data()));
+  //      _productModel.add(ProductModel.fromJson(value[i].data()));
         print(_productModel.length);
         _loading.value = false;
       }

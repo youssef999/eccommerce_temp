@@ -90,8 +90,8 @@ class RegisterView extends GetWidget<AuthViewModel> {
 
                   CustomButton(
                     onPressed: () {
-                      _formKey.currentState.save();
-                      if (_formKey.currentState.validate()) {
+                      _formKey.currentState!.save();
+                      if (_formKey.currentState!.validate()) {
                         // controller.verifyPhoneNumber();
                         controller.createAccountWithEmailAndPassword();
                       }

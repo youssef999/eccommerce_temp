@@ -17,7 +17,7 @@ class CartViewModel extends GetxController {
   num total = 0.0;
   int quant2 = 1;
   var dbHelper = CartDatabaseHelper.db;
-  ProductModel model;
+  ProductModel model=ProductModel();
 
   @override
   void onInit() {
